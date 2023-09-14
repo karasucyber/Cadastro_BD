@@ -47,7 +47,6 @@ public class ConectorBD {
                 System.out.println("ID: " + id + ", Nome: " + nome);
             }
 
-            // Não esqueça de fechar os recursos quando terminar
             resultSet.close();
             conexao.close();
         } catch (SQLException e) {

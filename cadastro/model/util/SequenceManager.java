@@ -45,9 +45,9 @@ public class SequenceManager {
     }
 
     public static void main(String[] args) {
-        String url = "jdbc:sqlserver://seu_servidor:porta;databaseName=seu_banco";
-        String usuario = "seu_usuario";
-        String senha = "sua_senha";
+        String url = "jdbc:sqlserver://seu_servidor:1433;databaseName=bd";
+        String usuario = "SA";
+        String senha = "962133246";
 
         SequenceManager sequenceManager = new SequenceManager(url, usuario, senha);
 
