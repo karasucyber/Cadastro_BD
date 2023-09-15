@@ -27,5 +27,5 @@ String cpf ;
 
 
 @Override
-    public String toString(){ return "id: " +  id + "nome: " + nome + "Logradouro: " +  "Cidade: " + cidade + "Estado: " + estado + "Telefone: " + telefone + "email: " + email + "Cpf: " + cpf ;}
+    public String toString(){ return "id: " +  id + "nome: " + nome + "Logradouro: " +  "Cidade: " + cidade + "Estado: " + estado + "Telefone: " + Telefone + "email: " + email + "Cpf: " + cpf ;}
 }

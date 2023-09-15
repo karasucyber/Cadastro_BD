@@ -25,6 +25,6 @@ public class PessoaJuridica  extends Pessoa{
     }
 
     @Override
-    public String toString(){ return "id: " +  id + "nome: " + nome + "Logradouro: " +  "Cidade: " + cidade + "Estado: " + estado + "Telefone: " + telefone + "email: " + email + "Cpf: " + cnpj + " razao social " + RazaoSocial;}
+    public String toString(){ return "id: " +  id + "nome: " + nome + "Logradouro: " +  "Cidade: " + cidade + "Estado: " + estado + "Telefone: " + Telefone + "email: " + email + "Cpf: " + cnpj + " razao social " + RazaoSocial;}
 }
 

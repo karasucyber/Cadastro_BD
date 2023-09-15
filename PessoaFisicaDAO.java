@@ -41,12 +41,8 @@ public class PessoaFisicaDAO  {
 
         String sql = "SELECT * FROM PessoaFisica WHERE Id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-           stmt.setString(1,nome);
             stmt.setInt(2, id );
-            stmt.setString(3, cidade);
-            stmt.setString(4, estado);
-            stmt.setInt(5, telefone);
-            stmt.setString(6, email);
+
 
 
             try (ResultSet resultSet = stmt.executeQuery()) {
@@ -63,12 +59,7 @@ public class PessoaFisicaDAO  {
         }
     }
 
-    public List<PessoaFIsica> getPessoas(int id, String  nome,
-                                         String logradouro,
-                                         String cidade,
-                                         String estado,
-                                         int telefone,
-                                         String email) throws SQLException {
+    public List<PessoaFIsica> getPessoas(int id, String  nome, String logradouro, String cidade, String estado, int telefone,String email) throws SQLException {
         if (connection == null) {
             throw new IllegalStateException("A conexão com o banco de dados não foi estabelecida.");
         }
@@ -78,13 +69,7 @@ public class PessoaFisicaDAO  {
         try (PreparedStatement stmt = connection.prepareStatement(sql);
              ResultSet resultSet = stmt.executeQuery()) {
             while (resultSet.next()) {
-                PessoaFIsica pessoa = new PessoaFIsica(id,
-                        nome,
-                        logradouro,
-                        cidade,
-                        estado,
-                        telefone,
-                        email);
+                PessoaFIsica pessoa = new PessoaFIsica(id, nome, logradouro, cidade, estado, telefone,email);
                 pessoa.setId(resultSet.getInt("Id"));
 
                 pessoas.add(pessoa);
@@ -110,7 +95,7 @@ public class PessoaFisicaDAO  {
             throw new IllegalStateException("A conexão com o banco de dados não foi estabelecida.");
         }
 
-        String sql = "UPDATE PessoaFisica SET Nome = ?, Sobrenome = ?, CPF = ?, DataNascimento = ? WHERE Id = ?";
+        String sql = "UPDATE PessoaFisica SET Nome = ?, WHERE Id = ?";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
             stmt.setString(1, pessoa.getNome());
             stmt.setInt(2, pessoa.getId());

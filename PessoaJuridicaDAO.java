@@ -40,6 +40,10 @@ public class PessoaJuridicaDAO {
                 if (resultSet.next()) {
                     PessoaJuridica pessoa = new PessoaJuridica(id, nome, logradouro,cidade,estado,telefone,email, cnpj, RazaoSocial);
                     pessoa.setId(resultSet.getInt("Id"));
+                    pessoa.setNome(resultSet.getString("nome"));
+                    pessoa.setlogradouro(resultSet.getString("logradouro"));
+                    pessoa.setCidade(resultSet.getString("cidade"));
+                    pessoa.setEstado(resultSet.getString("estado"));
                     pessoa.setRazaoSocial(resultSet.getString("RazaoSocial"));
                     // Outros atributos...
 
@@ -63,6 +67,13 @@ public class PessoaJuridicaDAO {
             while (resultSet.next()) {
                 PessoaJuridica pessoa = new PessoaJuridica(id, nome, logradouro,cidade,estado,telefone,email, cnpj, RazaoSocial);
                 pessoa.setId(resultSet.getInt("Id"));
+                pessoa.setNome(resultSet.getString("nome"));
+                pessoa.setlogradouro(resultSet.getString("logradouro"));
+                pessoa.setCidade(resultSet.getString("cidade"));
+                pessoa.setEstado(resultSet.getString("estado"));
+                pessoa.setTelefone(resultSet.getInt("telefone"));
+                pessoa.setEmail(resultSet.getString("email"));
+                pessoa.setCnpj(resultSet.getString("cnpj"));
                 pessoa.setRazaoSocial(resultSet.getString("RazaoSocial"));
                 // Outros atributos...
 
@@ -77,10 +88,11 @@ public class PessoaJuridicaDAO {
             throw new IllegalStateException("A conexão com o banco de dados não foi estabelecida.");
         }
 
-        String sql = "INSERT INTO Pessoa (RazaoSocial, CNPJ) VALUES (?, ?)";
+        String sql = "INSERT INTO Pessoa () VALUES (?, ?)";
         try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, pessoa.getRazaoSocial());
-            stmt.setString(2, pessoa.getCnpj());
+            stmt.setInt(1, pessoa.getTelefone());
+            stmt.setString(2, pessoa.getRazaoSocial());
+            stmt.setString(3, pessoa.getCnpj());
             stmt.executeUpdate();
         }
     }
